@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a class="btn btn-primary my-4 " href="#" role="button">Create products</a>
+
+<div class="card card-body">
+    <table class="table table-striped ">
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in products %}
+          <tr>
+            <th scope="row">{{ product.name }}</th>
+            <td>{{ product.category }}</td>
+            <td>{{ product.price }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock content %}
