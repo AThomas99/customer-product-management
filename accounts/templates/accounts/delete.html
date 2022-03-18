@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col py-4">
+        <div class="col-md">
+            <form class="form" action="{% url 'delete-order' item.id %}" method="POST"></form>
+                <div class="card  text-center bg-light text-black mb-3" id="total-order">
+                    <div class="card-header">
+                        <h5 class="card-title">Are you sure you want to delete "{{ item.product.name }}"?</h5>
+                    </div>
+                    <div class="card-body">
+                        <a href="{% url 'home' %}" class="btn btn-danger mx-2" />Cancel</a>
+                        <input class="btn btn-primary" type="submit" value="Submit" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col">
+
+    </div>
+</div>
+
+{% endblock %}
