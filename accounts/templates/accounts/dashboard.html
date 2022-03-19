@@ -50,7 +50,7 @@
                        {% for order in orders %} 
                       <tr>
                         <th scope="row">{{ order.product.name }}</th>
-                        <td>{{ order.created }}</td>
+                        <td>{{ order.date_created }}</td>
                         <td>{{ order.status }}</td>
                         <td><a class="btn btn-primary" href="{% url 'update-order' order.id %}" role="button">Update</a></td>
                         <td><a class="btn btn-danger" href="{% url 'delete-order' order.id %}" role="button">Delete</a></td>

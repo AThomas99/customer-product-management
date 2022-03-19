@@ -3,6 +3,7 @@ from django.forms import inlineformset_factory
 
 from .models import *
 from .forms import OrderForm
+from .filters import OrderFilter
 
 def home(request):
     customers = Customer.objects.all()
@@ -31,10 +32,13 @@ def customers(request, pk):
     customers = Customer.objects.get(id=pk)
 
     customer_orders = customers.order_set.all()
+    myFilter = OrderFilter(request.GET, queryset=customer_orders)
+    customer_orders = myFilter.qs
 
     context = {
         'customers': customers,
         'customer_orders': customer_orders,
+        'myFilter': myFilter,
         }
     return render(request, 'accounts/customers.html', context)
 

@@ -50,17 +50,11 @@
         <div class="col-md">
             <div class="card text-center text-black mb-3" id="total-order">
                 <div class="card-header">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" method="get">
+                        {{myFilter.form}}
                         <button class="btn btn-outline-success" type="submit">Search</button>
-                      </form>
+                    </form>
                 </div>
-                <!-- <div class="card-body">
-                    <h3 class="card-title d-grid gap-2">
-                        <a class="btn btn-outline-primary btn-block" href="#" role="button">Create customer</a>
-                        <a class="btn btn-outline-danger btn-block" href="#" role="button">Update customer</a>
-                    </h3>
-                </div> -->
             </div>
         </div>
     </div>
@@ -71,7 +65,7 @@
         <thead>
           <tr>
             <th scope="col">Product</th>
-            <th scope="col">Category</th>
+            <th scope="col">Note</th>
             <th scope="col">Date Ordered</th>
             <th scope="col">Status</th>
             <th scope="col">Update</th>
@@ -82,8 +76,8 @@
         {% for customer_order in customer_orders %}
           <tr>
             <th scope="row">{{customer_order.product}}</th>
-            <td>{{customer_order.product.category}}</td>
-            <td>{{ customer_order.created }}</td>
+            <td>{{ customer_order.note }}</td>
+            <td>{{ customer_order.date_created }}</td>
             <td>{{customer_order.status}}</td>
             <td><a class="btn btn-primary" href="#" role="button">Update</a></td>
             <td><a class="btn btn-danger" href="#" role="button">Delete</a></td>
