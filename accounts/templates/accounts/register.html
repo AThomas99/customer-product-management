@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="d-flex justify-content-center py-5">
+            <form class="form" action="" method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form__group form__group mb-3">
+                    <label for="" class="form-label">{{field.label}}: </label>
+                            {{ field }}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <p class="py-2">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+              </form>
+        </div>
+    </div>
+
+{% endblock %}
