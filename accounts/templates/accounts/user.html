@@ -2,7 +2,30 @@
 
 {% block content %}
     {% include 'accounts/status.html' %}
+
     <div class="container-fluid">
-        <h1>User profile</h1>
+        <div class="card card-body m-3">
+            <h3>Order list:</h1>
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">Date Ordered</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for order in orders %}
+                  <tr>
+                    <th scope="row">{{order.product}}</th>
+                    <td>{{ order.note }}</td>
+                    <td>{{ order.date_created }}</td>
+                    <td>{{ order.status}}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+        </div>
     </div>
 {% endblock %}
