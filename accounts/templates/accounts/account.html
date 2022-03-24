@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+    <div class="row m-3">
+        <div class="col-md-3">
+            <div class="card card-body">
+                <a href="{% url 'home' %}" class="btn btn-warning">Back to profile</a> <hr>
+                <h3 style="text-align: center;">Account settings</h3> <hr>
+                <img src="{{ request.user.customer.profile_pic.url }}" alt="" class="profile-pic">
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card card-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form__group form__group mb-3">
+                    <label for="" class="form-label">{{field.label}}: </label>
+                            {{ field }}
+                    </div>
+                    {% endfor %}
+                    <input class="btn btn-primary" type="submit" value="Update Information" name="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
