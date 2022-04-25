@@ -1,7 +1,5 @@
-from ssl import wrap_socket
-from tokenize import group
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
 
 # A decorator is a function that takes in another function as a parameter and add a functionality before the original functionality is called.
 def unauthenticated_user(view_func):

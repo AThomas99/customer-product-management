@@ -15,7 +15,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'product' %}">Products</a>
           </li>
-          {% else %}
+          {% elif request.user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts-page' %}">Settings</a>
           </li>
